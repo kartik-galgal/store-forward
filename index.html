@@ -1,5 +1,30 @@
+<!-- https://apps.apple.com/in/app/galgal/id6473023984 -->
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>Hello</h1>
+  <head>
+    <title>Open Galgal Powered by Cosmos Bank</title>
+    <script>
+      function redirectToApp() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Attempt to open the app using the custom URL scheme
+        if (/android/i.test(userAgent)) {
+          // Fallback to Google Play Store after a delay for Android
+          setTimeout(() => {
+            window.location = "https://play.google.com/store/apps/details?id=money.galgal.cosmos&referralCode=ABCD";
+          }, 2000);
+        } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+          // Fallback to App Store after a delay for iOS
+          setTimeout(() => {
+            window.location = "https://apps.apple.com/in/app/galgal/id6473023984?referralCode=ABCD";
+          }, 2000);
+        } else {
+          window.location = "https://www.galgal.money?referralCode=ABCD";
+        }
+      }
+    </script>
+  </head>
+  <body onload="redirectToApp()">
+    <p>Redirecting to the app...</p>
   </body>
 </html>
